@@ -1,0 +1,4 @@
+{
+    "mongoDBConnection" : "mongodb+srv://Mern:1234@cluster0.l5ujt.mongodb.net/projecthydraserver?retryWrites=true&w=majority",
+    "jwtsecret": "secret"
+}
