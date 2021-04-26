@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
   });
 
 router.post(
-    '/',auth,
+    '/',
     [
-        check('name','Name is required').not().isEmpty(),
-        check('price','Price is required').not().isEmpty(),
-        check('image','Image is required').not().isEmpty()
+        // check('name','Name is required').not().isEmpty(),
+        // check('price','Price is required').not().isEmpty(),
+        //check('image','Image is required').not().isEmpty()
         
     ],
     async(req, res) => {
@@ -31,7 +31,7 @@ router.post(
     
     try {
         const newHotelRoom = new HotelRoom1({
-            user: req.user.id,
+           // user: req.user.id,
             name : req.body.name,
             price: req.body.price,
             image: req.body.image
@@ -40,7 +40,7 @@ router.post(
         await newHotelRoom.save();
         const payload = {
             hotelroom1 : {
-                id: newHotelRoom.id,
+               // id: newHotelRoom.id,
                 name: newHotelRoom.name,
                 price: newHotelRoom.price,
                 image: newHotelRoom.image              

@@ -48,8 +48,8 @@ app.use('/api/flight', flightsRoutes);
 app.use('/api/payment', paymentRoutes);
 app.use('/api/blog', blogRoutes);
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(5000, () => {
   console.log('Server started');
 });

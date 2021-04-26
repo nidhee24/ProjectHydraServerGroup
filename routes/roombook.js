@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {          //To display the details of rooms
   });
 
 router.post(           // To insert details of rooms
-    '/',auth,
+    '/',
     [
         check('firstname','First Name is required').not().isEmpty(),
         check('lastname','Last Name is required').not().isEmpty(),
@@ -34,7 +34,7 @@ router.post(           // To insert details of rooms
     
     try {
         const newRoom = new Room({
-            user: req.user.id,
+           // user: req.user.id,
             firstname : req.body.firstname,
             lastname: req.body.lastname,
            //email : req.body.email,
@@ -45,7 +45,7 @@ router.post(           // To insert details of rooms
         await newRoom.save();
         const payload = {
             room : {
-                id: newRoom.id,
+                //id: newRoom.id,
                 firstname: newRoom.firstname,
                 lastname: newRoom.lastname,
                // email: newRoom.email,
@@ -55,9 +55,10 @@ router.post(           // To insert details of rooms
         };
         const result = await newRoom.save();
         res.send(result);
-        
+        console.log("Post method call");   
     }
     catch(err){
+      console.log(err.message);
         res.status(500).send(err.message);
     }
 }
@@ -78,7 +79,7 @@ router.delete('/', auth, async (req, res) => {
     }
 });
 
-router.put('/', auth,
+router.put('/', 
   [
     check('firstname','First Name is required').not().isEmpty(),
     check('lastname','Last Name is required').not().isEmpty(),
