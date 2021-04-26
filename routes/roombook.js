@@ -64,7 +64,7 @@ router.post(           // To insert details of rooms
 }
 );
 
-router.delete('/', auth, async (req, res) => {
+router.delete('/', async (req, res) => {
     try {
         console.log("Delete");
       const room = await Room.findById(req.body.id);

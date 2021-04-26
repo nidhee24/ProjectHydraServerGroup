@@ -30,13 +30,13 @@ router.get('/:id', async(req, res) => {
 });
 
 router.post(
-  '/',auth,
+  '/',
 
-  [
-    check('name', 'name is required').not().isEmpty(),
-    check('email', 'email is required').not().isEmpty(),
+  // [
+  //   check('name', 'name is required').not().isEmpty(),
+  //   check('email', 'email is required').not().isEmpty(),
     
-  ],
+  // ],
   async (req, res) => {
     try {
       const insertRest = new Review ({
